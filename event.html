@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .purple{
+            background-color: purple;
+        }
+
+        .modal{ 
+            width: 500px;
+            padding: 20px;
+            background-color: skyblue;
+            position: fixed;
+            top: 40%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* display: none; */
+            opacity: .4;
+            visibility: hidden;
+            font-family: sans-serif;
+            transition: .6s;
+        }
+
+        .modal div{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .d-block{
+            top: 50%;
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .overlay{
+            width: 100%;
+            height: 100vh;
+            background-color: rgba(0, 0, 0, 0.22);
+            position: fixed;
+            top: 0;
+            left: 0;
+            display: none;
+        }
+
+        .overlay-show{
+            display: block;
+        }
+    </style>
+</head>
+<body>
+
+    <button class="btn">Click 1</button>
+    <button class="btn">Click 2</button>
+    <button class="btn">Click 3</button>
+
+    <div class="overlay"></div>
+
+    <div class="modal">
+        <div>
+            <h1>I am a model</h1>
+            <button class="close-btn">&times;</button>
+        </div>
+        <p>
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Illum suscipit neque quidem, exercitationem, vero in amet dicta obcaecati odio a numquam nisi cum, mollitia magni at nihil labore. Odio, labore.
+        </p>
+    </div>
+
+    <script>
+
+        // loop, array, object 
+
+        const btn = document.querySelectorAll('.btn')
+        let modal = document.querySelector('.modal')
+        let btnClose = document.querySelector('.close-btn');
+        let overlay = document.querySelector('.overlay');
+
+        for(let i = 0; i < btn.length; i++) {
+            btn[i].addEventListener('click', () => {
+                modal.classList.add('d-block')
+                overlay.classList.add('overlay-show')
+            })
+        }
+
+        function closeModel() {
+            modal.classList.remove('d-block')
+            overlay.classList.remove('overlay-show')
+        }
+
+        btnClose.addEventListener('click', () => {
+            closeModel()
+        })
+
+        overlay.addEventListener('click', () => {
+            closeModel()
+        })
+
+    </script>
+
+    <!-- <h1>Hello World</h1>
+    <p>
+        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Modi iusto numquam dicta deleniti laudantium eligendi nisi doloremque eum pariatur facere, alias optio sequi aspernatur soluta facilis porro aliquam natus doloribus!
+    </p>
+    <button id="btn1">button 1</button>
+    <button id="btn2">button 2</button>
+    <button id="btn3">button 3</button> -->
+
+
+    <script>
+
+        // const button1 = document.querySelector('#btn1')
+        // const button2 = document.querySelector('#btn2')
+        // const button3 = document.querySelector('#btn3')
+        // const body = document.querySelector('body');
+
+        // button1.addEventListener('mouseenter', function () {
+        //     body.classList.add('purple')
+        // })
+
+        // button1.addEventListener('mouseleave', function () {
+        //     body.classList.remove('purple')
+        // })
+
+        // button2.addEventListener('click', () => {
+        //     body.style.backgroundColor = "yellow"
+        // })
+
+        // button2.addEventListener('dblclick', () => {
+        //     body.style.backgroundColor = "white"
+        // })
+
+        // button.addEventListener(event, function)
+
+        // let person = {
+        //     firstName: 'parth',
+        //     lastName: 'singh',
+        //     showFullName: () => {
+        //         console.log("parth singh")
+        //     }
+        // }
+
+    //    person.showFullName()
+    </script>
+
+</body>
+</html>
