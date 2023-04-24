@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // map , filter 
+        const number = [1,2,3,4,5]
+        // const array2 = []
+        // number.forEach((element, index, arr) => {
+        //     const multi = element * 2
+        //     array2.push(multi)
+        // })
+
+        // console.log('hello', array2)
+        
+        // const modifyArray = number.map((element, index, arr) => {
+        //     return element * 10
+        // })
+
+        // console.log(modifyArray);
+
+        const transactions = [100, -50, 5000, 1000, -500, 16, 150, -100]
+
+        const deposit =  transactions.filter((item, index, arr) => {
+            return item > 0
+        })
+
+        const withDraw = transactions.filter((raju) => {
+            return raju < 0
+        })
+
+        console.log(deposit)
+        console.log(withDraw)
+
+        const total = deposit.reduce((a,b) =>  {
+            return a + b
+        })
+
+        const expense = withDraw.reduce((a, b) => {
+            return a + b
+        })
+
+        console.log('expense', expense, 'total', total);
+        // console.log(`expense ${expense} total ${total}`)
+
+</script>
+</body>
+</html>
