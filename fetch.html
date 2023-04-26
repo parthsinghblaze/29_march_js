@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        p{
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1></h1>
+    <p>
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Debitis natus dolor inventore mollitia ratione. Cum aliquid amet qui reiciendis corrupti explicabo ut, saepe aperiam quam, necessitatibus voluptatibus excepturi, esse a!
+    </p>
+    <script>
+       
+        // fetch(`https://fakestoreapi.com/products`)
+        // .then((resp) =>  resp.json())
+        // .then((data) => console.log('data', data))
+
+        // setTimeout(function , timer)
+
+        // if run only one time after the given time you have given
+        setTimeout(() => {
+            document.querySelector('p').style.color = 'black'
+        }, 5000)
+
+        const h1 = document.querySelector('h1')
+
+
+        const myTimer = setInterval(() => {
+            let currentTime = new Date()
+            h1.innerText = currentTime.toLocaleTimeString()
+        }, 1000)
+
+        setTimeout(() => {
+            clearInterval(myTimer)
+        }, 10000)
+
+        // 1000 1s 
+        // 2000 2s 
+
+        console.log('Hey 1')
+        console.log('Hey 2')
+        console.log('Hey 3')
+        // for(let i = 0; i <= 1000; i++) {
+        //     console.log('hii')
+        // }
+        console.log('Hey 4')
+        console.log('Hey 5')
+        console.log('Hey 6')
+        console.log('Hey 7')
+
+    </script>
+</body>
+</html>

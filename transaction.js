@@ -10,6 +10,7 @@ const data = [
     total: -100,
   },
   {
+    
     id: 3,
     userName: "Raju",
     total: 9000,
@@ -45,8 +46,25 @@ const transactionUI = document.querySelector("#transaction");
 
 function getTransaction(type) {
 
-  for (const currentElement of data) {
-    if (type === "all") {
+  let filterData = []
+
+  if(type === 'all') {
+    filterData = data
+  }
+
+  if(type === 'positive') {
+    filterData = data.filter((item) => item.total > 0)
+  }
+
+  if(type === 'negative') {
+    filterData = data.filter((item) => item.total < 0)
+  }
+
+  while (transactionUI.hasChildNodes()) {
+    transactionUI.firstChild.remove()
+  }
+
+  for (const currentElement of filterData) {
       const html = `
         <div class="col-md-4 mb-2">
         <div class="card" style="height: 100%">
@@ -60,24 +78,6 @@ function getTransaction(type) {
 
       transactionUI.insertAdjacentHTML("afterbegin", html);
     }
-
-    if (type === "positive") {
-    }
-
-    if (type === "negative") {
-    }
-  }
 }
 
 getTransaction("all");
-
-// const positionCustomers = data.filter((item) => {
-//   return item.total > 0;
-// });
-
-// const negativeCustomers = data.filter((item) => {
-//   return item.total < 0;
-// });
-
-// console.log("positive", positionCustomers);
-// console.log("negative", negativeCustomers);
