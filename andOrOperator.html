@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="english" type="text" placeholder="english">
+    <input id="science" type="text" placeholder="science">
+    <input id="math" type="text" placeholder="math">
+    <button onclick="getResult()">Get result</button>
+    <p>total marks <span id="totalMarks"></span> </p>
+    <p>total percentage</p>
+
+    <script>
+        const english = document.querySelector("#english")
+        const science = document.querySelector("#science")
+        const math = document.querySelector("#math")
+        const totalMarks = document.querySelector('#totalMarks');
+
+        function getResult() {
+            const englishValue = english.value
+            const scienceValue = science.value 
+            const mathValue = math.value
+
+            if(englishValue === "" || scienceValue === "" || mathValue === "") {
+                alert("All marks is req")
+                return false 
+            }
+
+            if(englishValue < 0 || englishValue > 100 || scienceValue < 0 || scienceValue > 100 || mathValue < 0 || mathValue > 100) {
+                alert("Marks should be between 0 to 100")
+                return false
+            }
+
+            const calcTotalMarks = Number(englishValue) + Number(scienceValue) + Number(mathValue)
+
+            totalMarks.innerHTML = calcTotalMarks
+
+        }
+    </script>
+
+</body>
+</html>

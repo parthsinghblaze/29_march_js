@@ -14,10 +14,17 @@
   </head>
   <body>
     <div class="container py-5">
+      <div class="d-flex justify-content-between">
+        <div>
+
         <button class="btn btn-warning" onclick="getTransaction('all')">All</button>
         <button class="btn btn-primary" onclick="getTransaction('positive')">Show Positive</button>
         <button class="btn btn-danger" onclick="getTransaction('negative')">Show Negative</button>
-      <div class="row py-4" id="transaction">
+      </div>
+      <p style="font-weight: 800;"> total: <span id="total"></span>  </p>
+      </div>
+
+        <div class="row py-4" id="transaction">
         <div class="col-md-4">
           <h1>Hello 1</h1>
         </div>

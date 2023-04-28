@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ" crossorigin="anonymous">
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            
+        </div>
+    </div>
+    <script>
+
+        const row = document.querySelector('.row')
+
+        function createInteface(products) {
+            for(const singleProduct of products) {
+                const html = `
+                <div class="col-md-4">
+                <div class="card">
+                    <img src="${singleProduct.image}" alt="">
+                    <div class="card-body">
+                        <h4> ${singleProduct.title} </h4>
+                        <h6> ${singleProduct.price} </h6>
+                        <p> ${singleProduct.description} </p>
+                    </div>
+                </div>
+            </div>
+                `
+                row.insertAdjacentHTML('afterbegin', html)
+            }
+        }
+
+        fetch(`https://fakestoreapi.com/products`)
+            .then((resp) => resp.json())
+            .then((data) => createInteface(data))
+            .catch((e) => console.log('e', e))
+
+    //   const phoneNumber = 9998889998;
+
+    //   const myPromise = new Promise((resolve, reject) => {
+    //     setTimeout(() => {
+    //       if (phoneNumber === 9998889998) {
+    //         resolve("Yes i got my fav number");
+    //       } else {
+    //         reject("I didn't get");
+    //       }
+    //     }, 2000);
+    //   });
+
+    //   myPromise.then((resp) => console.log("resp", resp)).catch((e) => console.log('e', e))
+
+
+
+    </script>
+</body>
+
+</html>

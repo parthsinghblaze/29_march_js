@@ -43,21 +43,33 @@ const data = [
 ];
 
 const transactionUI = document.querySelector("#transaction");
+const total = document.querySelector('#total');
+
+function calTotalCash(filterData) {
+  let totalCash = 0
+    for(const singleData of filterData) {
+      totalCash = totalCash + singleData.total
+    }
+    total.innerHTML = totalCash
+}
 
 function getTransaction(type) {
 
   let filterData = []
 
   if(type === 'all') {
-    filterData = data
+    filterData = data 
+    calTotalCash(filterData)
   }
 
   if(type === 'positive') {
     filterData = data.filter((item) => item.total > 0)
+    calTotalCash(filterData)
   }
 
   if(type === 'negative') {
     filterData = data.filter((item) => item.total < 0)
+    calTotalCash(filterData)
   }
 
   while (transactionUI.hasChildNodes()) {
